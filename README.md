@@ -26,11 +26,13 @@ Etkinliklerinizi dijital ortamda planlamanıza, yönetmenize ve kritik olanları
 ![Etkinlik Detayları](docs/details.png)
 ![Etkinlik Düzenle](docs/edit.png)
 
+### 🗑️ Silme Onayı
+![Etkinliği Sil](docs/delete.png)
+
 ### 🔐 Gizlilik Politikası
 ![Gizlilik Politikası](docs/privacy.png)
 
-### 🗑️ Silme Onayı
-![Etkinliği Sil](docs/delete.png)
+
 
 ---
 
