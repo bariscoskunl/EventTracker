@@ -1,4 +1,4 @@
-# 📅 EventTracker - Etkinlik Yönetim Sistemi
+# 📅 EventTracker - Modern Etkinlik Yönetim Sistemi
 
 Etkinliklerinizi dijital ortamda planlamanıza, yönetmenize ve kritik olanları en başa sabitlemenize (pin) olanak tanıyan profesyonel bir **Full-Stack ASP.NET Core MVC** uygulaması.
 
@@ -17,20 +17,20 @@ Etkinliklerinizi dijital ortamda planlamanıza, yönetmenize ve kritik olanları
 ## 📸 Uygulama Görselleri
 
 ### 🏠 Ana Sayfa (Sabitlenmiş Etkinlikler)
-![Sabitlenmiş Etkinlikler](main.png)
+![Sabitlenmiş Etkinlikler](docs/main.png)
 
 ### 📊 Etkinlik Listesi
-![Tüm Etkinlikler](list.png)
+![Tüm Etkinlikler](docs/list.png)
 
 ### 📝 Detay ve Düzenleme
-![Etkinlik Detayları](details.png)
-![Etkinlik Düzenle](edit.png)
+![Etkinlik Detayları](docs/details.png)
+![Etkinlik Düzenle](docs/edit.png)
 
 ### 🔐 Gizlilik Politikası
-![Gizlilik Politikası](privacy.png)
+![Gizlilik Politikası](docs/privacy.png)
 
 ### 🗑️ Silme Onayı
-![Etkinliği Sil](delete.png)
+![Etkinliği Sil](docs/delete.png)
 
 ---
 
@@ -46,8 +46,6 @@ Etkinliklerinizi dijital ortamda planlamanıza, yönetmenize ve kritik olanları
 ## 🔧 Kurulum ve Çalıştırma
 
 1. **Repo'yu Klonlayın:** `git clone https://github.com/bariscoskunl/EventTracker.git`
-2. **Veritabanı Hazırlığı:** `appsettings.json` dosyasındaki bağlantı dizesini kontrol edin.
-3. **Migration & Seed:** Projeyi doğrudan başlatın; `DbSeeder` sayesinde örnek veriler otomatik olarak yüklenecektir.
-4. **Uygulamayı Başlatın:** Visual Studio üzerinden `F5` veya `dotnet run`.
-
-
+2. **Bağlantı Dizesini Güncelleyin:** `appsettings.json` dosyasını açın ve `DefaultConnection` kısmındaki `Server` bilgisini kendi yerel SQL Server adresinize (örn: `(localdb)\MSSQLLocalDB`) göre güncelleyin.
+3. **Veritabanını Hazırlayın:** Paket Yöneticisi Konsolu'nda `Update-Database` komutunu çalıştırın. Bu işlem tabloları oluşturacak ve `DbSeeder` sayesinde örnek verileri otomatik olarak yükleyecektir.
+4. **Uygulamayı Başlatın:** Visual Studio üzerinden `F5` tuşuna basın veya terminalde `dotnet run` komutunu çalıştırın.
