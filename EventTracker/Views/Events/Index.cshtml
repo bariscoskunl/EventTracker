@@ -1,0 +1,62 @@
+@model List<EventViewModel>
+
+@{
+    ViewData["Title"] = "Etkinlikler";
+}
+
+<div class="container mt-5">
+    @* Başlık ve Yeni Etkinlik Butonu *@
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Tüm Etkinlikler</h2>
+        <a asp-action="Create" class="btn btn-success">+ Yeni Etkinlik</a>
+    </div>
+
+    @* Tabloyu Sarmalayan Kart Yapısı *@
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            <table class="table table-striped table-hover align-middle mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Başlık</th>
+                        <th>Açıklama</th>
+                        <th>Tarih</th>
+                        <th class="text-end" style="width: 250px;">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>
+                                @if (item.IsPinned)
+                                {
+                                    <span class="badge bg-warning text-dark p-1" style="font-size: 0.75rem; line-height: 1; vertical-align: middle;">📌</span>
+                                }
+                                @item.Title
+                            </td>
+                            <td>@item.ShortDescription</td>
+                            <td>@item.FormattedDate</td>
+                            <td class="text-end">
+                                <div class="d-flex justify-content-end gap-1">
+                                    @* Pinleme Formu *@
+                                    <form asp-action="TogglePin" asp-route-id="@item.Id" method="post" class="d-inline">
+                                        <button type="submit" class="btn btn-sm @(item.IsPinned ? "btn-warning" : "btn-outline-secondary")">
+                                            @(item.IsPinned ? "Pin Kaldır" : "Pinle")
+                                        </button>
+                                    </form>
+
+                                    @* İşlem Butonları *@
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">Detay</a>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-warning">Düzenle</a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">Sil</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

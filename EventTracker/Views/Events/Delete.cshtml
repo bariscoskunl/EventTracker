@@ -1,0 +1,51 @@
+@model EventModel
+
+@{
+    ViewData["Title"] = "Etkinliği Sil";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+
+            @* Başlık: Silme uyarısı olduğu için text-danger ile vurguladık *@
+            <h2 class="text-danger mb-4 text-center text-md-start">Etkinliği Sil</h2>
+
+            @* Dikkat Çekici Uyarı *@
+            <div class="alert alert-warning border-1 shadow-sm mb-4">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                <strong>@Model.Title</strong> etkinliğini silmek istediğinize emin misiniz? Bu işlem geri alınamaz.
+            </div>
+
+            @* Silinecek Verinin Özeti *@
+            <div class="card shadow-sm border-1 mb-4">
+                <div class="card-body p-4">
+                    <dl class="row mb-0">
+                        <dt class="col-sm-4 text-muted">Başlık</dt>
+                        <dd class="col-sm-8 fw-bold">@Model.Title</dd>
+
+                        <hr class="my-2 opacity-25">
+
+                        <dt class="col-sm-4 text-muted">Açıklama</dt>
+                        <dd class="col-sm-8">@(Model.Description ?? "Açıklama bulunmuyor.")</dd>
+
+                        <hr class="my-2 opacity-25">
+
+                        <dt class="col-sm-4 text-muted">Tarih</dt>
+                        <dd class="col-sm-8">@(Model.Date?.ToString("dd MMMM yyyy, HH:mm") ?? "Belirtilmedi")</dd>
+                    </dl>
+                </div>
+            </div>
+
+            @* Onay Formu *@
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="Id" />
+                <div class="d-flex gap-2 justify-content-center justify-content-md-start">
+                    <button type="submit" class="btn btn-danger px-4 fw-bold">Evet, Sil</button>
+                    <a asp-action="Index" class="btn btn-outline-secondary px-4">İptal</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

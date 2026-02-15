@@ -1,0 +1,53 @@
+﻿@model EventModel
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+
+            @* Başlık Bölümü *@
+            <h2 class="mb-4">Etkinlik Detayları</h2>
+
+            @* Detay Kartı *@
+            <div class="card shadow-sm border-1">
+                <div class="card-body p-4">
+                    <dl class="row mb-0">
+                        <dt class="col-sm-4 text-muted">ID</dt>
+                        <dd class="col-sm-8 fw-bold">#@Model.Id</dd>
+
+                        <hr class="my-2 opacity-25">
+
+                        <dt class="col-sm-4 text-muted">Başlık</dt>
+                        <dd class="col-sm-8">
+                            @if (Model.IsPinned)
+                            {
+                                <span class="badge bg-warning text-dark me-1" style="font-size: 0.75rem; line-height: 1; vertical-align: middle;">📌</span>
+                            }
+                            @Model.Title
+                        </dd>
+
+                        <hr class="my-2 opacity-25">
+
+                        <dt class="col-sm-4 text-muted">Açıklama</dt>
+                        <dd class="col-sm-8">@(Model.Description ?? "Açıklama bulunmuyor.")</dd>
+
+                        <hr class="my-2 opacity-25">
+
+                        <dt class="col-sm-4 text-muted">Tarih</dt>
+                        <dd class="col-sm-8">@(Model.Date?.ToString("dd MMMM yyyy, HH:mm") ?? "Tarih Belirtilmedi")</dd>
+                    </dl>
+                </div>
+            </div>
+
+            @* İşlem Butonları *@
+            <div class="d-flex gap-2 mt-4">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning px-4 fw-bold">Düzenle</a>
+                <a asp-action="Index" class="btn btn-outline-secondary px-4">Geri Dön</a>
+            </div>
+
+        </div>
+    </div>
+</div>

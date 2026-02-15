@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Gizlilik Politikası";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="display-4 border-bottom pb-3 mb-4">@ViewData["Title"]</h1>
+
+            <p class="lead text-muted">Son güncelleme: @DateTime.Now.ToString("dd MMMM yyyy")</p>
+
+            <section class="mb-5">
+                <h3>1. Veri Toplama</h3>
+                <p>EventTracker olarak, platformumuzda oluşturduğunuz etkinliklerin (başlık, açıklama, tarih) kaydını tutmaktayız. Bu veriler sadece sizin kullanıcı deneyiminizi iyileştirmek ve etkinliklerinizi yönetmenizi sağlamak amacıyla kullanılır.</p>
+            </section>
+
+            <section class="mb-5">
+                <h3>2. Veri Güvenliği</h3>
+                <p>Verileriniz güvenli yerel veritabanımızda saklanmaktadır. Üçüncü şahıslarla paylaşılmamakta olup, sistem güvenliği için standart koruma protokolleri uygulanmaktadır.</p>
+            </section>
+
+            <section class="mb-5">
+                <h3>3. Çerezler (Cookies)</h3>
+                <p>Sitemiz, tercihlerinizi hatırlamak ve size daha hızlı bir hizmet sunabilmek için temel düzeyde çerezler kullanabilir.</p>
+            </section>
+
+            <div class="alert alert-info mt-4">
+                <i class="bi bi-info-circle"></i> Herhangi bir sorunuz için <strong>destek@eventtracker.com</strong> adresi üzerinden bizimle iletişime geçebilirsiniz.
+            </div>
+        </div>
+    </div>
+</div>
